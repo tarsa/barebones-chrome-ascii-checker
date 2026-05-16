@@ -54,3 +54,27 @@ textarea {
 .result.bad {
   color: #b3261e;
 }
+
+.context {
+  margin: 0;
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background: #eee;
+  color: #555;
+  font: 14px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 160px;
+  overflow: auto;
+}
+
+.context[hidden] {
+  display: none;
+}
+
+.suspicious {
+  color: #b3261e;
+  background: #ffe3e0;
+  font-weight: 700;
+}

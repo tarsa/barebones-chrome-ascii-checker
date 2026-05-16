@@ -8,4 +8,11 @@ The extension allows only:
 - spaces
 - printable ASCII characters, U+0021 through U+007E
 
-Other control characters and non-ASCII characters are reported as disallowed.
+Other control characters and non-ASCII characters are reported as suspicious.
+
+When a suspicious character is found, the popup shows:
+- the code point
+- the line number
+- the character index in that line
+- the overall character position
+- a short context box with the suspicious character highlighted
