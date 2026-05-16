@@ -41,22 +41,6 @@ textarea {
   font: 14px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-button {
-  align-self: flex-start;
-  padding: 8px 12px;
-  border: 0;
-  border-radius: 8px;
-  background: #1a73e8;
-  color: #fff;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-button:hover,
-button:focus {
-  background: #1558b0;
-}
-
 .result {
   min-height: 1.4em;
   margin: 2px 0 0;

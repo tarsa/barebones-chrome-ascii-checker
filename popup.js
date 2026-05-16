@@ -43,4 +43,7 @@ function checkAscii() {
   result.classList.add("bad");
 }
 
-document.getElementById("checkButton").addEventListener("click", checkAscii);
+const textArea = document.getElementById("inputText");
+
+textArea.addEventListener("input", checkAscii);
+checkAscii();
