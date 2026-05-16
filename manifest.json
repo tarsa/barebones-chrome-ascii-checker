@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "ASCII Checker (suspicious characters finder)",
+  "name": "Printable ASCII Checker (suspicious characters finder)",
   "version": "1.0",
-  "description": "Check whether text contains only 7-bit ASCII characters.",
+  "description": "Check whether text contains only tabs, newlines, spaces, and printable ASCII characters.",
   "action": {
-    "default_title": "ASCII Checker",
+    "default_title": "Printable ASCII Checker",
     "default_popup": "popup.html"
   }
 }
