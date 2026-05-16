@@ -151,7 +151,10 @@ function checkText() {
   result.classList.remove("ok", "bad");
 
   if (problem === null) {
-    result.textContent = "OK: all characters are allowed.";
+    result.textContent =
+        "OK: all " +
+        inputText.value.length +
+        " characters are allowed.";
     result.classList.add("ok");
     context.hidden = true;
     clearElement(context);
