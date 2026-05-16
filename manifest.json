@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Printable ASCII Checker (suspicious characters finder)",
   "version": "1.0",
-  "description": "Check whether text contains only tabs, newlines, spaces, and printable ASCII characters.",
+  "description": "Check whether text contains only tabs, newlines, spaces, and printable ASCII characters. Optionally disallow uppercase ASCII letters too.",
   "action": {
     "default_title": "Printable ASCII Checker",
     "default_popup": "popup.html"

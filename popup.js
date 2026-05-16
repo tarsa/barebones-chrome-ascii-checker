@@ -1,6 +1,7 @@
 const CONTEXT_RADIUS = 30;
 
 const inputText = document.getElementById("inputText");
+const disallowUppercase = document.getElementById("disallowUppercase");
 const result = document.getElementById("result");
 const context = document.getElementById("context");
 
@@ -8,16 +9,33 @@ function formatCodePoint(codePoint) {
   return "U+" + codePoint.toString(16).toUpperCase().padStart(4, "0");
 }
 
-function isAllowedCharacter(codePoint) {
+function isUppercaseAsciiLetter(codePoint) {
+  return codePoint >= 0x41 && codePoint <= 0x5A;
+}
+
+function isAllowedBaseCharacter(codePoint) {
   return (
       codePoint === 0x09 ||
       codePoint === 0x0A ||
       codePoint === 0x0D ||
-      (codePoint >= 0x20 && codePoint <= 0x7E)
+      codePoint === 0x20 ||
+      (codePoint >= 0x21 && codePoint <= 0x7E)
   );
 }
 
-function findFirstDisallowedCharacter(text) {
+function getSuspiciousReason(codePoint, options) {
+  if (!isAllowedBaseCharacter(codePoint)) {
+    return "only tabs, newlines, spaces, and printable ASCII characters are allowed";
+  }
+
+  if (options.disallowUppercase && isUppercaseAsciiLetter(codePoint)) {
+    return "uppercase letters A-Z are disallowed";
+  }
+
+  return null;
+}
+
+function findFirstSuspiciousCharacter(text, options) {
   let index = 0;
   let line = 1;
   let column = 1;
@@ -25,14 +43,16 @@ function findFirstDisallowedCharacter(text) {
 
   for (const character of text) {
     const codePoint = character.codePointAt(0);
+    const reason = getSuspiciousReason(codePoint, options);
 
-    if (!isAllowedCharacter(codePoint)) {
+    if (reason !== null) {
       return {
         index,
         line,
         column,
         character,
-        codePoint
+        codePoint,
+        reason
       };
     }
 
@@ -122,7 +142,11 @@ function renderContext(text, problem) {
 }
 
 function checkText() {
-  const problem = findFirstDisallowedCharacter(inputText.value);
+  const options = {
+    disallowUppercase: disallowUppercase.checked
+  };
+
+  const problem = findFirstSuspiciousCharacter(inputText.value, options);
 
   result.classList.remove("ok", "bad");
 
@@ -143,11 +167,14 @@ function checkText() {
       problem.column +
       " (overall position " +
       (problem.index + 1) +
-      ").";
+      "). Reason: " +
+      problem.reason +
+      ".";
 
   result.classList.add("bad");
   renderContext(inputText.value, problem);
 }
 
 inputText.addEventListener("input", checkText);
+disallowUppercase.addEventListener("change", checkText);
 checkText();

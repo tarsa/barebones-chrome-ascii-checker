@@ -9,9 +9,13 @@
 <body>
 <main class="card">
     <h1>Printable ASCII Checker</h1>
-    <p class="hint">Checks whether every character is a tab, newline, space, or printable ASCII character.</p>
+    <p class="hint">Checks whether every character is a tab, newline, space, or printable ASCII character. Optionally flags uppercase A-Z.</p>
     <label for="inputText">Text to check</label>
     <textarea id="inputText" rows="8" placeholder="Paste or type text here"></textarea>
+    <label class="option" for="disallowUppercase">
+        <input id="disallowUppercase" type="checkbox">
+        Disallow uppercase letters A-Z
+    </label>
     <p id="result" class="result" aria-live="polite"></p>
     <div id="context" class="context" hidden></div>
 </main>
