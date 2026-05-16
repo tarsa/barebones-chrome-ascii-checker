@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ASCII Checker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="card">
+    <h1>ASCII Checker</h1>
+    <p class="hint">Checks whether every character fits in 7-bit ASCII: code points 0-127.</p>
+    <label for="inputText">Text to check</label>
+    <textarea id="inputText" rows="8" placeholder="Paste or type text here"></textarea>
+    <button id="checkButton" type="button">Check ASCII</button>
+    <p id="result" class="result" aria-live="polite"></p>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>
