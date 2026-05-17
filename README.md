@@ -2,6 +2,8 @@
 Google Chrome ASCII checker (suspicious characters finder) extension
 with very short and simple source code for easy and quick auditing.
 
+![icon128.png](icons/icon128.png "application icon")
+
 The extension allows only:
 - tabs
 - newlines
